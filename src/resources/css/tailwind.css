@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f1f1f1;
+}
+
+@variants focus {
+    .outline-yellow {
+        outline: 3px solid #ffbf47;
+        outline-offset: 0;
+    }
+}
