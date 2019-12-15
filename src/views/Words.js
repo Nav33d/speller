@@ -5,6 +5,7 @@ import Container from '../components/Container';
 const Words = () => {
   const {state, dispatch} = React.useContext(Store);
   const [word, setWord] = useState("");
+  const [meaning, setMeaning] = useState("");
 
   const removeWord = (e, index) => {
     return dispatch({
@@ -28,9 +29,10 @@ const Words = () => {
     e.preventDefault();
     dispatch({
       type: "ADD_WORD",
-      payload: {word: word, meaning: ""}
+      payload: {word: word, meaning: meaning}
     });
     setWord("");
+    setMeaning("");
   }
 
   return (
@@ -41,6 +43,10 @@ const Words = () => {
           <div className="mb-4">
             <label className="block text-lg mb-2">Add a word</label>
             <input className="appearance-none border-2 border-black w-full py-2 px-3 leading-tight focus:outline-yellow" type="text" name="word" autoComplete="off" value={word} onChange={(e) => setWord(e.target.value)} required/>
+          </div>
+          <div className="mb-4">
+            <label className="block text-lg mb-2">Meaning</label>
+            <textarea className="appearance-none border-2 border-black w-full py-2 px-3 leading-tight focus:outline-yellow" type="text" name="word" autoComplete="off" value={meaning} onChange={(e) => setMeaning(e.target.value)}></textarea>
           </div>
           <div>
             <button className="bg-black hover:bg-gray-900 text-white py-2 px-4 focus:outline-yellow" type="submit">Submit</button>
